@@ -13,6 +13,44 @@ control.
 
 This plugin just defines one global function, g:IndentSentence().
 
+Example
+===============
+You might have written the following sentences in tex:
+
+```tex
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus ligula
+molestie dapibus cum vestibulum - duis interdum taciti nascetur: senectus
+cursus litora. Pharetra sociis hac ligula semper facilisi aliquam viverra duis
+velit proin; habitasse libero nibh. Pharetra donec augue porta elementum eu
+vitae fringilla proin dolor lorem, at nam mauris. Ridiculus turpis morbi nec
+viverra justo elit: parturient adipiscing penatibus maecenas - vulputate ad
+curabitur! Nisi iaculis Ullamcorper pulvinar convallis commodo, ultricies elit
+etiam interdum penatibus sem varius quis?
+```
+
+This is hard to read. But more importantly, it gets messy when maintaining this
+in a line-based version control system.
+Therefore the following format is a best practise for tex source files:
+
+```tex
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Donec tempus ligula molestie dapibus cum vestibulum - duis interdum taciti
+  nascetur:
+senectus cursus litora.
+Pharetra sociis hac ligula semper facilisi aliquam viverra duis velit proin;
+habitasse libero nibh.
+Pharetra donec augue porta elementum eu vitae fringilla proin dolor lorem, at
+  nam mauris.
+Ridiculus turpis morbi nec viverra justo elit:
+parturient adipiscing penatibus maecenas - vulputate ad curabitur!
+Nisi iaculis Ullamcorper pulvinar convallis commodo, ultricies elit etiam
+  interdum penatibus sem varius quis?
+```
+
+This format can easily be achieved by using g:IndentSentence which accepts
+a range.
+See usage below for examples on key mappings.
+
 Installation
 ==============
 Use vundle, pathogen, or whatever floats your boat.
