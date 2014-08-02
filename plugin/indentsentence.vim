@@ -1,4 +1,4 @@
-function! s:IndentSentences() range
+function! s:IndentSentence() range
   " execute a:firstline  . "," . a:lastline . 'join'
   let singleline = join(getline(a:firstline, a:lastline))
   let unfmt_lines = split(singleline, '\v(\.|;|!)\zs ')
