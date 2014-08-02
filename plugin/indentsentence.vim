@@ -1,6 +1,8 @@
 function! g:IndentSentence() range
+  let sentence_stops = ['\.', '\;', '\!', '\:', '\?']
+  let regex_stop = '\v('.join(sentence_stops, '|').')'
   let singleline = join(getline(a:firstline, a:lastline))
-  let unfmt_lines = split(singleline, '\v(\.|;|!|\:|\?)\zs ')
+  let unfmt_lines = split(singleline, regex_stop.'\zs ')
   execute a:firstline.",".a:lastline."delete"
   call append(a:firstline-1, unfmt_lines)
   " Trim new lines
@@ -12,7 +14,7 @@ function! g:IndentSentence() range
     exe curline.",".curline."normal gww"
     " Indent newly created/wrapped lines
     let lastline = curline
-    while getline(lastline) !~ '\v(\.|;|!|\:|\?)$'
+    while getline(lastline) !~ regex_stop.'$'
       let lastline += 1
     endwhile
     if lastline > curline
