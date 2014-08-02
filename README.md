@@ -3,7 +3,7 @@ vim-indent-sentence
 
 A simple addition to vim to indent sentences in tex files
 
-Each sentence (ending in either full-stop, question mark, semicolon, or
+Each sentence (ending in either full-stop, question mark, colon, semicolon, or
 exclamation mark) is put on its own line.
 Sentences are wrapped according to ```textwidth```.
 Wrapped lines are indented according to ```shiftwidth```.
