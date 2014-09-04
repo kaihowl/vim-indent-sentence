@@ -71,3 +71,11 @@ nnoremap <leader>ip vip :call g:IndentSentence()<cr>
 " Indent Sentence / Visual Selection
 vnoremap <leader>is :call g:IndentSentence()<cr>
 ```
+
+Alternatively, you can also define a reformat paragraph keymapping which will
+restore your original cursor position.
+Please note, though, that this haphazardly works by inserting, finding, and
+deleting the string "//CURSOR//":
+```vim
+nnoremap <leader>ip i//CURSOR//<esc>vip :call g:IndentSentence()<cr>:%s/\/\/CURSOR\/\///<cr>
+```
